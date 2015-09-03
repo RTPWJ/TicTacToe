@@ -1,7 +1,7 @@
 /*
 Name: Alexander Georgiadis (RezTech)
 Date Started: 5/19/2015
-Date Last Edited: 9/2/2015
+Date Last Edited: 9/3/2015
 Description: This is a partialy complex Tic Tac Toe game, to be used with RTPWJ (Ready To Program With Java).
 */
 
@@ -45,7 +45,7 @@ public class TicTacToe_Educational
         //Generate The Player Number
         playerNum = (int) (Math.random () * 2);
 
-        if (playerNum == 0)
+        if (playerNum == 0) //This can be used, or one can be added to the Math.random (), I prefer this method, but either can be used
         {
             playerNum = 2;
         }
@@ -55,15 +55,15 @@ public class TicTacToe_Educational
         c.println ("It appears player " + playerNum + " will be going first! Please select if you would like to use X's or O's for your markings.");
         if (playerNum == 1)
         {
-            playerSymbol = c.getChar ();
+            playerSymbol = c.getChar (); //Stores player ones symbol in a char
         }
         else
         {
-            playerSymbol2 = c.getChar ();
+            playerSymbol2 = c.getChar (); //And if it is not player one, it is playrer two, that get's stored in playerSymbol2 char
         }
 
         //Check That Last One
-        while (!(playerSymbol == 'X' || playerSymbol == 'O' || playerSymbol == 'x' || playerSymbol == 'o' || playerSymbol2 == 'X' || playerSymbol2 == 'O' || playerSymbol2 == 'x' || playerSymbol2 == 'o'))
+        while (!(playerSymbol == 'X' || playerSymbol == 'O' || playerSymbol == 'x' || playerSymbol == 'o' || playerSymbol2 == 'X' || playerSymbol2 == 'O' || playerSymbol2 == 'x' || playerSymbol2 == 'o')) //Checks to make sure that a correct value is entered, not depending on capitilization
         {
             c.clear ();
             c.println ("Player number " + playerNum + "! Please select either X's or O's.");
@@ -146,13 +146,13 @@ public class TicTacToe_Educational
                     location = c.readLine ();
                 }
 
-                locationInt = Integer.parseInt (location); //Moving this into the while loop fixed the re-looping error because of non-matching values, so let's keep it here
+                locationInt = Integer.parseInt (location); //Moving this into the while loop fixed the re-looping error because of non-matching values, let's keep this there
             }
 
             //Assign Value To The Array
             if (playerNum == 1)
             {
-                playedSymbol [locationInt] = playerSymbol;
+                playedSymbol [locationInt] = playerSymbol; //Assigns the spot on the board the player's symbol (Copy the char into the array)
             }
             else
             {
@@ -168,8 +168,7 @@ public class TicTacToe_Educational
             //Increment Counter
             counter++;
 
-            //Check To See If We Have A Winner
-            //(I know it is messy, but it works. If someone does find a cleaner way to do it, feel free to subit a pull request to the GitHub page)
+            //Check For Win
 
             //Side To Side (3)
             if (playedSymbol [1] == 'X' && playedSymbol [2] == 'X' && playedSymbol [3] == 'X') //Row 1
@@ -274,7 +273,8 @@ public class TicTacToe_Educational
     }
 
 
-    public static void drawBoard ()
+    public static void drawBoard () //Calling this method will always re-draw the board, and is only needed after the players have been selected
+    
     {
         c.println ("----------------------------");
         c.println ("|1.      |2.      |3.      |");
@@ -285,7 +285,7 @@ public class TicTacToe_Educational
         c.println ("----------------------------");
         c.println ("|4.      |5.      |6.      |");
         c.println ("|        |        |        |");
-        c.println ("|    " + playedSymbol [4] + "   |    " + playedSymbol [5] + "   |    " + playedSymbol [6] + "   |"); //But after the first run, either an X or an O will be in the space, depending if it has been filled by the user or not
+        c.println ("|    " + playedSymbol [4] + "   |    " + playedSymbol [5] + "   |    " + playedSymbol [6] + "   |");
         c.println ("|        |        |        |");
         c.println ("|        |        |        |");
         c.println ("----------------------------");
@@ -307,7 +307,7 @@ public class TicTacToe_Educational
         //Increment The Counter
         counter2++;
 
-        if (counter2 <= 30) //This is declared before this method is called, to prevent the value from being overwritten each time, resulting in the counter for the cat's game not to work (Because the number would always be less then 0 as it would always be set to 0 when the method is called)
+        if (counter2 <= 30)
         {
             //Generates A Random Question
             questionNumber = (int) (Math.random () * 31); //So multiply by 31 to get 30... Seems about right
@@ -429,7 +429,7 @@ public class TicTacToe_Educational
             c.println ("Type in 1 to respond as true, or 2 to respond as false.");
             c.println ();
             c.println (promptArray [questionNumber]);
-            trueOrfalse = c.getChar (); //Prevents the user from entering anything more then we need, either a 1 or a 2, without causing a crash if anything else is entered, like an int would
+            trueOrfalse = c.getChar ();
 
             //Checks Response
             if (!(trueOrfalse == '1' || trueOrfalse == '2')) //Invalid Response
@@ -510,7 +510,7 @@ public class TicTacToe_Educational
         }
         else //Multiple options could be created here, but because it is either play again or quit, if it's not one, it's the either
         {
-            System.exit (1337); //Kills the program (Not part of HSA, as it is a system command)
+            System.exit (1337); //Kills the program (Not part of HSA, as it is a system command) This is used to prevent other methods from running after the user has requested the game to end
         }
     }
 }

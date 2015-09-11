@@ -19,7 +19,7 @@ public class TicTacToe_Educational
     static String promptArray[] = new String [31];
 
     //Variables
-    static int playerNum, counter2 = 0;
+    static int playerNum, counter = 0, counter2 = 0;
     static char playerSymbol, playerSymbol2;
 
     public static void main (String[] args)
@@ -115,7 +115,7 @@ public class TicTacToe_Educational
     {
 
         //Variables
-        int locationInt, hasFinished = 0, counter = 0;
+        int locationInt, hasFinished = 0;
         String location;
 
         //Print Begining Board
@@ -473,7 +473,7 @@ public class TicTacToe_Educational
         else //If we have used all 30 questions, there is othing else to do but this
         {
             c.clear ();
-            c.println ("It appears we are out of questions, therefor it's a cat's game!");
+            c.println ("It appears we are out of questions, therefore it's a cat's game!");
             newGame (); //Ask For A New Game
         }
     }
@@ -515,6 +515,7 @@ public class TicTacToe_Educational
             {
                 questionArray [i] = 0;
             }
+            counter = 0; //Because this is now a static int, we need to re-set this when the game is done as it is not set to 0 in any other methods
             counter2 = 0; //Re-set's the round counter. If this is not done, a cat's game may be called even if it is not supposed to
             selectPlayer (); //Calls the array to re-select the player
         }

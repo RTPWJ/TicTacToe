@@ -86,6 +86,16 @@ public class TicTacToe_Educational
         {
             playerSymbol = 'O';
         }
+        
+        //Fixes if player 2 selects X, player 1 does not get a marker that works (Box)
+        if (playerSymbol2 == 'X')
+        {
+            playerSymbol = 'O';
+        }
+        else
+        {
+            playerSymbol = 'X';
+        }
 
         //Assigns X/O's To The Second Player
         if (playerSymbol == 'X')

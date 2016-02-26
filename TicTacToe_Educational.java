@@ -2,7 +2,7 @@
 Name: Alexander Georgiadis (RezTech)
 Date Started: 5/19/2015
 Date Last Edited: 9/3/2015
-Description: This is a partialy complex Tic Tac Toe game, to be used with RTPWJ (Ready To Program With Java).
+Description: This is a partially complex Tic Tac Toe game, to be used with RTPWJ (Ready To Program With Java).
 */
 
 import java.awt.*;
